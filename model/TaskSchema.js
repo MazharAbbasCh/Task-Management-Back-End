@@ -7,6 +7,11 @@ const TaskSchema = new Schema({
     description: { type: String },
     status: { type: String, default: 'pending' },
     reminderDate: { type: Date }, // Ensure this line is correctly defined
+    priority: {
+        type: String,
+        enum: ['low', 'medium', 'high'],
+        default: 'low'
+      }
 });
 
 module.exports = mongoose.model('Tasks', TaskSchema, 'Tasks');
